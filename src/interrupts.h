@@ -1,3 +1,5 @@
+#ifndef INTERRUPTS_H
+#define INTERRUPTS_H
 /*
 gamboop - an open source Game Boy Emulator
 Copyright (C) 2017  Isaac Snellgrove
@@ -16,3 +18,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, write snellgrove.isaac@gmail.com .
 
 */
+
+#include <iostream>
+
+class Interrupts{
+public:
+    Interrupts(){
+        std::cout << "Interrupts up!\n";
+    }
+};
+#endif

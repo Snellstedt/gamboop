@@ -1,3 +1,5 @@
+#ifndef GAME_BOY_H
+#define GAME_BOY_H
 /*
 gamboop - an open source Game Boy Emulator
 Copyright (C) 2017  Isaac Snellgrove
@@ -17,14 +19,28 @@ along with this program.  If not, write snellgrove.isaac@gmail.com .
 
 */
 #include <iostream>
+#include "interrupts.h"
 
 class GameBoy{
 public:
     //Constuctor
-    GameBoy(std::string rom_in, bool debug_in){
+    GameBoy(std::string rom_in, bool debug_in): controls(), cpu(), display(), interrupts(){
+
+        //detect what type ROM we have, and create the appropriate cartidge object
         
     }
 private:
+    //freind fucntions to give other components acces to working memory
+    // read byte and read word, write byte and write word
+
+
+
+
+
+
+    /////////////////////////////////////////////////
+
+
     //contains:
 
     //detect and make the correct cartridge object
@@ -32,11 +48,14 @@ private:
     //create a Controls
     Controls controls;
     //create a CPU
-    
+    Cpu cpu;
     //create a display
-
+    Display display;
     //create an interrupt contoller
-
+    Interrupts interrupts;
     //create the sound module
-
+    // Sound sound;
+    
 };
+
+#endif

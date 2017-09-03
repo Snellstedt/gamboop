@@ -1,3 +1,5 @@
+#ifndef CONTROLS_H
+#define CONTROLS_H
 /*
 gamboop - an open source Game Boy Emulator
 Copyright (C) 2017  Isaac Snellgrove
@@ -16,7 +18,13 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, write snellgrove.isaac@gmail.com .
 
 */
+#include <iostream>
 
 class Controls{
+public:
+    Controls(){
+        std::cout << "Controls up!\n";
+    }
 
 };
+#endif

@@ -1,3 +1,5 @@
+#ifndef CARTRIDGE_H
+#define CARTRIDGE_H
 /*
 gamboop - an open source Game Boy Emulator
 Copyright (C) 2017  Isaac Snellgrove
@@ -24,13 +26,25 @@ along with this program.  If not, write snellgrove.isaac@gmail.com .
 // appropriatley using polymorphism
 
 //base class. this class loads up the run upon construction, but does not 
-//provide any bank switching. The only two commercial cames this will run 
-//should be Tetris and Dr. Mario
+//provide any bank switching. 
+#include <iostream>
 
 class Cartridge{
-public:
-    //Constructor
-    Cartridge();
-    
-private:
+
+protected:
+    //Banks 0 and 1
+
 };
+
+class MBC0: public Cartridge{
+    MBC0(){
+        std::cout << "Loaded MBC0 Cart!\n";
+    }
+};
+
+class MBC1: public Cartridge{
+    MBC1(){
+        std::cout << "Loaded MBC1 Cart!";
+    }
+};
+#endif

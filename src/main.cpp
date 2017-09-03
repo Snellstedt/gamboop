@@ -77,4 +77,6 @@ int main(int argc, char** args){
     }// end while loop
     ///end getopt //////////////////////////////////////////////////////////////////
 
+    GameBoy gb(rom_name, debug);
+
 }
