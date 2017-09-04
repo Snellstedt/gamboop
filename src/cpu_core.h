@@ -35,21 +35,199 @@ public:
 
 private:
     
-    //registers
+    //registers - same method as Cinoop, credit given to cturt
+	struct reg{
+                struct {
+                    union {
+                        struct {
+                            unsigned char f;
+                            unsigned char a;
+                        };
+                        unsigned short af;
+                    };
+                };
+                
+                struct {
+                    union {
+                        struct {
+                            unsigned char c;
+                            unsigned char b;
+                        };
+                        unsigned short bc;
+                    };
+                };
+                
+                struct {
+                    union {
+                        struct {
+                            unsigned char e;
+                            unsigned char d;
+                        };
+                        unsigned short de;
+                    };
+                };
+                
+                struct {
+                    union {
+                        struct {
+                            unsigned char l;
+                            unsigned char h;
+                        };
+                        unsigned short hl;
+                    };
+                };
+            };
 
     //program counter and stack pointer
     u16 pc, sp;
 
-
+    //0x00 to 0x0f
     static void nop_(){}
-    void ld_bc_d16(){}
-    void ld_0xbc_a(){}
-    void inc_bc(){}
+    static void ld_bc_d16(){}
+    static void ld_0xbc_a(){}
+    static void inc_bc(){}
+    static void inc_b(){}
+    static void dec_b(){}
+    static void ld_b_d8(){}
+    static void rlca_(){}
+    static void ld_0xa16_sp(){}
+    static void add_hl_bc(){}
+    static void ld_a_0xbc(){}
+    static void dec_bc(){}
+    static void inc_c(){}
+    static void dec_c(){}
+    static void ld_c_d8(){}
+    static void rrca_(){}
+
+    //0x10 to 0x1f
+    static void stop_(){}
+    static void ld_de_d16(){}
+    static void ld_0xde_a(){}
+    static void inc_de(){}
+    static void inc_d(){}
+    static void dec_d(){}
+    static void ld_d_d8(){}
+    static void rla_(){}
+    static void jr_r8(){}
+    static void add_hl_de(){}
+    static void ld_a_0xde(){}
+    static void dec_de(){}
+    static void inc_e(){}
+    static void dec_e(){}
+    static void ld_e_d8(){}
+    static void rra_(){}
+
+    //0x20 to 0x2f
+    static void jr_nz_r8(){}
+    static void ld_hl_d16(){}
+    static void ld_0xhli_a(){}
+    static void inc_hl(){}
+    static void inc_h(){}
+    static void dec_h(){}
+    static void ld_h_d8(){}
+    static void daa_(){}
+    static void jr_z_r8(){}
+    static void add_hl_hl(){}
+    static void ld_a_0xhli(){}
+    static void dec_hl(){}
+    static void inc_l(){}
+    static void dec_l(){}
+    static void ld_l_d8(){}
+    static void cpl_(){}
+
+    //0x30 to 0x3f
+    static void jr_nc_r8(){}
+    static void ld_sp_d16(){}
+    static void ld_0xhld_a(){}
+    static void inc_sp(){}
+    static void inc_0xhl(){}
+    static void dec_0xhl(){}
+    static void ld_0xhl_d8(){}
+    static void scf_(){}
+    static void jr_c_r8(){}
+    static void add_hl_sp(){}
+    static void ld_a_0xhld(){}
+    static void dec_sp(){}
+    static void inc_a(){}
+    static void dec_a(){}
+    static void ld_a_d8(){}
+    static void ccf_(){}
+
+    //0x40 to 0x4f
+    static void ld_b_b(){}                
+    static void ld_b_c(){}                
+    static void ld_b_d(){}                
+    static void ld_b_e(){}                
+    static void ld_b_h(){}                
+    static void ld_b_l(){}                
+    static void ld_b_0xhl(){}                
+    static void ld_b_a(){}                
+    static void ld_c_b(){}                
+    static void ld_c_c(){}                
+    static void ld_c_d(){}                
+    static void ld_c_e(){}                
+    static void ld_c_h(){}                
+    static void ld_c_l(){}                
+    static void ld_c_0xhl(){}                
+    static void ld_c_a_(){}                
     
+   //0x50 to 0x5f
+   static void ld_d_b(){}                
+   static void ld_d_c(){}                
+   static void ld_d_d(){}                
+   static void ld_d_e(){}                
+   static void ld_d_h(){}                
+   static void ld_d_l(){}                
+   static void ld_d_0xhl(){}                
+   static void ld_d_a(){}                
+   static void ld_e_b(){}                
+   static void ld_e_c(){}                
+   static void ld_e_d(){}                
+   static void ld_e_e(){}                
+   static void ld_e_h(){}                
+   static void ld_e_l(){}                
+   static void ld_e_0xhl(){}                
+   static void ld_e_a(){}                
+    
+   //0x60 to 0x6f
+   static void ld_h_b(){}                
+   static void ld_h_c(){}                
+   static void ld_h_d(){}                
+   static void ld_h_e(){}                
+   static void ld_h_h(){}                
+   static void ld_h_l(){}                
+   static void ld_h_0xhl(){}                
+   static void ld_h_a(){}                
+   static void ld_l_b(){}                
+   static void ld_l_c(){}                
+   static void ld_l_d(){}                
+   static void ld_l_e(){}                
+   static void ld_l_h(){}                
+   static void ld_l_l(){}                
+   static void ld_l_0xhl(){}                
+   static void ld_l_a(){}                
+
+   //0x70 to 0x7f
+   static void ld_0xhl_b(){}                
+   static void ld_0xhl_c(){}                
+   static void ld_0xhl_d(){}                
+   static void ld_0xhl_e(){}                
+   static void ld_0xhl_h(){}                
+   static void ld_0xhl_l(){}                
+   static void halt_(){}                
+   static void ld_0xhl_a(){}                
+   static void ld_a_b(){}                
+   static void ld_a_c_(){}                
+   static void ld_a_d(){}                
+   static void ld_a_e(){}                
+   static void ld_a_h(){}                
+   static void ld_a_l(){}                
+   static void ld_a_0xhl(){}                
+   static void ld_a_a(){}                
 
     //opcode will be used as an index for an array of function pointers
     void (*op_table[256])(void) = {
-        nop_
+        nop_, ld_bc_d16
         //etc etc etc
     };
 
